@@ -26,12 +26,12 @@ import kotlin.collections.set
 //  - Endgame (stronghold enter or end enter)       (endgameSeeds)
 @Serializable
 data class SeedDatabase(
-    val entryToBastionSeeds: HashMap<BastionIndexedByInfo, SeedList> = hashMapOf(),
-    val entryOnwardsSeeds: HashMap<BastionIndexedByInfo, FortOpennessSortedSeedList> = hashMapOf(),
-    val bastionSeeds: HashMap<BastionIndexedByInfo, SeedList> = hashMapOf(),
-    val bastionOnwardsSeeds: HashMap<BastionIndexedByInfo, FortOpennessSortedSeedList> = hashMapOf(),
-    val fortOnwardsSeeds: FortOpennessSortedSeedList = FortOpennessSortedSeedList(),
-    val endgameSeeds: HashMap<EndInfo, SeedList> = hashMapOf(),
+    private val entryToBastionSeeds: HashMap<BastionIndexedByInfo, SeedList> = hashMapOf(),
+    private val entryOnwardsSeeds: HashMap<BastionIndexedByInfo, FortOpennessSortedSeedList> = hashMapOf(),
+    private val bastionSeeds: HashMap<BastionIndexedByInfo, SeedList> = hashMapOf(),
+    private val bastionOnwardsSeeds: HashMap<BastionIndexedByInfo, FortOpennessSortedSeedList> = hashMapOf(),
+    private val fortOnwardsSeeds: FortOpennessSortedSeedList = FortOpennessSortedSeedList(),
+    private val endgameSeeds: HashMap<EndInfo, SeedList> = hashMapOf(),
 
     val seedInfo: HashMap<Long, SavedSeedInfo> = hashMapOf(),
 ) {
