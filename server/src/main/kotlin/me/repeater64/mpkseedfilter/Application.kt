@@ -12,8 +12,15 @@ import io.ktor.server.request.*
 import io.ktor.http.*
 import me.repeater64.mpkseedfilter.dto.request.SeedsRequest
 import me.repeater64.mpkseedfilter.dto.request.SeedsRequestResponse
+import me.repeater64.mpkseedfilter.filtering.database.LoadedNumAccessesDatabase
+import me.repeater64.mpkseedfilter.filtering.database.LoadedSeedDatabase
+import me.repeater64.mpkseedfilter.filtering.database.NumAccessesDatabase
+import me.repeater64.mpkseedfilter.filtering.database.SeedDatabase
 
 fun main() {
+    LoadedSeedDatabase.loadFromDisk()
+    LoadedNumAccessesDatabase.loadFromDisk()
+
     embeddedServer(Netty, port = SERVER_PORT, host = "0.0.0.0", module = Application::module)
         .start(wait = true)
 }

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.kotlinJvm)
     alias(libs.plugins.ktor)
     application
+    kotlin("plugin.serialization") version "2.3.20"
 }
 
 group = "me.repeater64.mpkseedfilter"

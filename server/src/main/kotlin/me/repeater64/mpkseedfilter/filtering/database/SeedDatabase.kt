@@ -2,9 +2,9 @@ package me.repeater64.mpkseedfilter.filtering.database
 
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.okio.decodeFromBufferedSource
 import kotlinx.serialization.json.okio.encodeToBufferedSink
+import me.repeater64.mpkseedfilter.JSON
 import me.repeater64.mpkseedfilter.dto.SavedSeedInfo
 import me.repeater64.mpkseedfilter.dto.bastion.BastionIndexedByInfo
 import me.repeater64.mpkseedfilter.dto.end.EndInfo
@@ -96,7 +96,6 @@ data class SeedDatabase(
     }
 }
 
-val JSON = Json { allowStructuredMapKeys = true }
 object LoadedSeedDatabase {
     lateinit var db: SeedDatabase
 
@@ -112,7 +111,7 @@ object LoadedSeedDatabase {
     @OptIn(ExperimentalSerializationApi::class)
     fun loadFromDisk() {
         db = FileSystem.SYSTEM.source(filePath).buffer().use { source ->
-            Json.decodeFromBufferedSource(source)
+            JSON.decodeFromBufferedSource(source)
         }
     }
 }
